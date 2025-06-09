@@ -21,7 +21,7 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/data")
+    fetch('https://crane-backend-cu6r.onrender.com')
       .then(res => res.json())
       .then(json => setData(json));
   }, []);
