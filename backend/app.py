@@ -3,6 +3,10 @@ from flask_cors import CORS
 import sqlite3
 import os
 
+# Automatically create database if it doesn't exist
+if not os.path.exists('my_database.db'):
+    import create_database  # This will create and seed the database
+
 
 app = Flask(__name__)
 CORS(app)  # Allow React frontend to fetch data
