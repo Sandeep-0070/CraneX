@@ -1,0 +1,18 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+
+# Ignore SQLite database
+backend/my_database.db
+
+# Ignore Node.js modules
+frontend/node_modules/
+
+# Ignore build outputs (if you build React app)
+frontend/build/
+
+# Ignore .env files and other sensitive configs
+*.env
+
+# VS Code settings (optional)
+.vscode/
