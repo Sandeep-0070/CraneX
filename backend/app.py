@@ -7,9 +7,14 @@ import os
 app = Flask(__name__)
 CORS(app)  # Allow React frontend to fetch data
 
-@app.route('/')
-def home():
-    return 'Backend is working!'
+@app.route('/api/data')
+def get_data():
+    conn = sqlite3.connect('my_database.db')
+    cur = conn.cursor()
+    cur.execute("SELECT time, weight, status FROM weight_data ORDER BY time ASC")
+    rows = cur.fetchall()
+    conn.close()
+    return jsonify([{"time": r[0], "weight": r[1], "status": r[2]} for r in rows])
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
